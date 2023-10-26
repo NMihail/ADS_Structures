@@ -1,0 +1,5 @@
+# ninja log v5
+8	94	7199310017267869	CMakeFiles/SLLL.dir/singleLinkedLinearList/singleLinkedLinearList.c.obj	3ee45bf416d2f37d
+1	68	7199310017017819	CMakeFiles/ADS_Structures.dir/main.c.obj	93a9fffe75c3ad84
+94	162	7199310017968028	libSLLL.a	df5c22db6b8ce56c
+162	250	7199310018828221	ADS_Structures.exe	4246c6a5b2d065e5

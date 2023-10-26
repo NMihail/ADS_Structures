@@ -1,0 +1,4 @@
+C:/Users/Worker/CLionProjects/ADS_Structures/cmake-build-debug/CMakeFiles/ADS_Structures.dir
+C:/Users/Worker/CLionProjects/ADS_Structures/cmake-build-debug/CMakeFiles/SLLL.dir
+C:/Users/Worker/CLionProjects/ADS_Structures/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Worker/CLionProjects/ADS_Structures/cmake-build-debug/CMakeFiles/rebuild_cache.dir
