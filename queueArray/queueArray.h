@@ -19,26 +19,26 @@ typedef int baseTypeQueueArray;
 typedef baseTypeQueueArray queueArray_[queueArraySize];
 
 typedef struct queueArray {
-    int stackArrayDynamicSize;
+    int queueArrayDynamicSize;
     queueArray_ data;
 } queueArray;
 
 // Возвращает значение "истина",
 // если стек пустой
-bool isStackArrayEmpty(queueArray *Q);
+bool isQueueArrayEmpty(queueArray *Q);
 
 // Инициализирует стек
 // Требует указатель на уже выделенную
 // область памяти для стека
-bool isStackArrayFull(queueArray *Q);
+bool isQueueArrayFull(queueArray *Q);
 
 // Очищает стек полностью
-void stackArrayFree(queueArray *Q);
+void queueArrayFree(queueArray *Q);
 
 // Вставляет элемент в стек
-void stackArrayPut(queueArray *Q, baseTypeQueueArray E);
+void queueArrayPut(queueArray *Q, baseTypeQueueArray E);
 
 // Получает элемент из стека
-void stackArrayGet(queueArray *Q, baseTypeQueueArray *G);
+void queueArrayGet(queueArray *Q, baseTypeQueueArray *G);
 
 #endif //ADS_STRUCTURES_QUEUE_ARRAY_H

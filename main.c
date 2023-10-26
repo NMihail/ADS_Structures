@@ -1,5 +1,5 @@
 //Включение библиотек
-//TODO: Реализовать deque dlist queue table!!!
+//TODO: Реализовать deque dlist table!!!
 
 int main() {
 
