@@ -8,17 +8,29 @@
 #include "../singleLinkedLinearList/singleLinkedLinearList.h"
 
 const int queueListOk = listOk;
-const int queueListEmpty = 1;
+const int queueListEmpty = listEmpty;
 const int queueListNotMem = listNotMem;
 extern int queueListError;
 
 typedef elementList elementQueueList;
 typedef list queueList;
 
+// Возвращает значение "истина",
+// если очередь пуста
 bool isQueueListEmpty(queueList *Q);
 
+// Инициализирует очередь
+// Требует указатель на уже выделенную
+// область памяти для очереди
+void queueListInit(queueList *Q);
+
+// Очищает очередь полностью
+void queueListFree(queueList *Q);
+
+// Вставляет элемент в очередь
 void queueListPut(queueList *Q, elementQueueList *E);
 
+// Получает элемент из очереди
 void queueListGet(queueList *Q, elementQueueList **G);
 
 #endif //ADS_STRUCTURES_QUEUE_LIST_H

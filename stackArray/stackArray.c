@@ -13,7 +13,7 @@ bool isStackArrayFull(stackArray *S) {
 }
 
 void stackArrayFree(stackArray *S) {
-
+    S->stackArrayDynamicSize = 0;
 }
 
 void stackArrayPut(stackArray *S, baseTypeStackArray E) {

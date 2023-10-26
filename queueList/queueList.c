@@ -3,8 +3,18 @@
 //
 
 #include "queueList.h"
+
 bool isQueueListEmpty(queueList *Q) {
     return isListEmpty(Q);
+}
+
+void queueListInit(queueList *Q) {
+    listInit(Q);
+    queueListError = listError;
+}
+
+void queueListFree(queueList *Q) {
+    freeList(Q);
 }
 
 void queueListPut(queueList *Q, elementQueueList *E) {

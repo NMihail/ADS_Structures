@@ -8,6 +8,15 @@ bool isStackListEmpty(stackList *S) {
     return isListEmpty(S);
 }
 
+void stackListInit(stackList *S) {
+    listInit(S);
+    stackListError = listError;
+}
+
+void stackListFree(stackList *S) {
+    freeList(S);
+}
+
 void stackListPut(stackList *S, elementStackList *E) {
     listPutAfterPtr(S, E);
     stackListError = listError;

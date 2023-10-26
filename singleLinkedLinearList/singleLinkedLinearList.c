@@ -5,24 +5,19 @@
 
 #include "singleLinkedLinearList.h"
 
-// Предикат пустоты списка L
 bool isListEmpty(list *L) {
     return L->L == NULL;
 }
 
-// Предикат конца списка L
 bool isListEnd(list *L) {
     return L->ptr->linkNext == NULL;
 }
 
-// Инициализация пустого списка L
 void listInit(list *L) {
     L->L = NULL;
     L->ptr = NULL;
 }
 
-// Выделить память под элемент и сохранить
-// указатель для доступа к памяти в указатель E
 void getMemToElement(elementList *E) {
     E = (elementList *)malloc(sizeof(elementList));
     if (E == NULL) {
@@ -33,8 +28,6 @@ void getMemToElement(elementList *E) {
     listError = listOk;
 }
 
-// Полностью освободить память, выделенную под эемент E,
-// но сохранить указатель на следующий после него элемент
 void freeMemToElement(elementList *E, elementList **next) {
     *next = E->linkNext;
     free(E->data);
@@ -58,8 +51,6 @@ void listMove(list *L, char pos) {
     }
 }
 
-// Вставить элемент, хранящийся по указателю E
-// в список L после рабочего указателя
 void listPutAfterPtr(list *L, elementList *E) {
     if (isListEmpty(L)) {
         L->L = E;
@@ -78,8 +69,6 @@ void listPutAfterPtr(list *L, elementList *E) {
     }
 }
 
-// Вставить элемент, хранящийся по указателю E
-// в список L до рабочего указателя
 void listPutBeforePtr(list *L, elementList *E) {
     if (isListEmpty(L)) {
         L->L = E;
@@ -103,9 +92,6 @@ void listPutBeforePtr(list *L, elementList *E) {
     }
 }
 
-// Элемент полностью не очищается, он храниться
-// по указателю G, но доступа к нему через
-// список L уже нет
 void listGetIntoPtr(list *L, elementList **G) {
     if (isListEmpty(L)) {
         listError = listEmpty;
@@ -135,9 +121,6 @@ void listGetIntoPtr(list *L, elementList **G) {
     }
 }
 
-// Элемент полностью не очищается, он храниться
-// по указателю G, но доступа к нему через
-// список L уже нет
 void listGetAfterPtr(list *L, elementList **G) {
     if (isListEmpty(L)) {
         listError = listEmpty;
@@ -150,7 +133,6 @@ void listGetAfterPtr(list *L, elementList **G) {
     }
 }
 
-// Полное очищение списка L
 void freeList(list *L) {
     elementList *buffer = L->L;
     L->ptr = L->L;
