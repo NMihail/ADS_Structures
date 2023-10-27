@@ -13,17 +13,31 @@ bool isListEnd(list *L) {
     return L->ptr->linkNext == NULL;
 }
 
-void listInit(list *L) {
-    L->L = NULL;
-    L->ptr = NULL;
-}
-
-void getMemToElement(elementList *E) {
-    E = (elementList *)malloc(sizeof(elementList));
-    if (E == NULL) {
+void listInit(list **L) {
+    *L = (list *)malloc(sizeof(list));
+    if (*L == NULL) {
         listError = listNotMem;
         return;
     }
+
+    (*L)->L = NULL;
+    (*L)->ptr = NULL;
+}
+
+void getMemToElement(elementList **E) {
+    *E = (elementList *) malloc(sizeof(elementList));
+    if (*E == NULL) {
+        listError = listNotMem;
+        return;
+    }
+
+    (*E)->data = (elPtrList) malloc(sizeof(baseTypeList));
+    if ((*E)->data == NULL) {
+        listError = listNotMem;
+        return;
+    }
+
+    (*E)->linkNext = NULL;
 
     listError = listOk;
 }
@@ -139,6 +153,9 @@ void freeList(list *L) {
     while (buffer != NULL) {
         freeMemToElement(L->ptr, &buffer);
     }
+
+    L->L = NULL;
+    L->ptr = NULL;
 
     listError = listOk;
 }

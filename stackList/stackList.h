@@ -7,9 +7,9 @@
 
 #include "../singleLinkedLinearList/singleLinkedLinearList.h"
 
-const int stackListOk = listOk;
-const int stackListEmpty = listEmpty;
-const int stackListNotMem = listNotMem;
+#define stackListOk listOk
+#define stackListEmpty listEmpty
+#define stackListNotMem listNotMem
 extern int stackListError;
 
 typedef baseTypeList baseTypeStackList;

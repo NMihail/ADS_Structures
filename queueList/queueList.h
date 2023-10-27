@@ -7,9 +7,9 @@
 
 #include "../singleLinkedLinearList/singleLinkedLinearList.h"
 
-const int queueListOk = listOk;
-const int queueListEmpty = listEmpty;
-const int queueListNotMem = listNotMem;
+#define queueListOk listOk
+#define queueListEmpty listEmpty
+#define queueListNotMem listNotMem
 extern int queueListError;
 
 typedef elementList elementQueueList;

@@ -9,14 +9,14 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-const int queueArrayOk = 0;
-const int queueArrayEmpty = 1;
-const int queueArrayFull = 2;
-const int queueArraySize = 100;
+#define queueArrayOk 0
+#define queueArrayEmpty 1
+#define queueArrayFull 2
+#define queueArraySize 100
 extern int queueArrayError;
 
 typedef int baseTypeQueueArray;
-typedef baseTypeQueueArray queueArray_[queueArraySize];
+typedef baseTypeQueueArray queueArray_[100];
 
 typedef struct queueArray {
     int queueArrayDynamicSize;

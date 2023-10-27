@@ -10,10 +10,10 @@
 #include <stdlib.h>
 #include <assert.h>
 
-const int listOk = 0;
-const int listEmpty = 1;
-const int listNotMem = 2;
-const int listEnd = 3;
+#define listOk 0
+#define listEmpty 1
+#define listNotMem 2
+#define listEnd 3
 extern int listError;
 
 typedef int baseTypeList;
@@ -38,11 +38,11 @@ bool isListEmpty(list *L);
 bool isListEnd(list *L);
 
 // Инициализация пустого списка L
-void listInit(list *L);
+void listInit(list **L);
 
 // Выделить память под элемент и сохранить
 // указатель для доступа к памяти в указатель E
-void getMemToElement(elementList *E);
+void getMemToElement(elementList **E);
 
 // Полностью освободить память, выделенную под эемент E,
 // но сохранить указатель на следующий после него элемент
