@@ -4,7 +4,7 @@
 
 int listError;
 
-int main() {
+void testList() {
     list *L = NULL;
     listInit(&L);
 
@@ -25,6 +25,14 @@ int main() {
     printf("%d", *E->data);
 
     freeList(&L);
+}
+
+void tests() {
+    testList();
+}
+
+int main() {
+    tests();
 
     return 0;
 }
