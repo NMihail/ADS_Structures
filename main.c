@@ -24,7 +24,7 @@ int main() {
 
     printf("%d", *E->data);
 
-    freeList(L);
+    freeList(&L);
 
     return 0;
 }

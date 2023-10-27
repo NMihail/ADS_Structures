@@ -147,15 +147,19 @@ void listGetAfterPtr(list *L, elementList **G) {
     }
 }
 
-void freeList(list *L) {
-    elementList *buffer = L->L;
-    L->ptr = L->L;
+void freeList(list **L) {
+    elementList *buffer = (*L)->L;
+    (*L)->ptr = (*L)->L;
     while (buffer != NULL) {
-        freeMemToElement(L->ptr, &buffer);
+        freeMemToElement((*L)->ptr, &buffer);
     }
 
-    L->L = NULL;
-    L->ptr = NULL;
+    (*L)->L = NULL;
+    (*L)->ptr = NULL;
+
+    free(*L);
+
+    *L = NULL;
 
     listError = listOk;
 }

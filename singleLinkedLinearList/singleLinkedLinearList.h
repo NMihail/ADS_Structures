@@ -67,7 +67,7 @@ void listGetIntoPtr(list *L, elementList **G);
 void listGetAfterPtr(list *L, elementList **G);
 
 // Полное очищение списка L
-void freeList(list *L);
+void freeList(list **L);
 
 // Передвинуть рабочий указатель на след. эл.
 // s - start, e = end, n - next element
