@@ -87,6 +87,7 @@ void listPutBeforePtr(list *L, elementList *E) {
     if (isListEmpty(L)) {
         L->L = E;
         L->ptr = E;
+        L->N++;
         listError = listOk;
     } else if (L->L == L->ptr) {
         L->L = E;
@@ -111,6 +112,7 @@ void listGetIntoPtr(list *L, elementList **G) {
         listError = listEmpty;
     } else if (L->L->linkNext == NULL) {
         *G = L->ptr;
+        L->N--;
 
         L->L = NULL;
         L->ptr = NULL;
@@ -119,6 +121,7 @@ void listGetIntoPtr(list *L, elementList **G) {
         *G = L->ptr;
         L->L = L->L->linkNext;
         L->ptr = L->ptr->linkNext;
+        L->N--;
         listError = listOk;
     } else {
         *G = L->ptr;
@@ -130,6 +133,7 @@ void listGetIntoPtr(list *L, elementList **G) {
 
         L->ptr = pntr;
         pntr->linkNext = (*G)->linkNext;
+        L->N--;
 
         listError = listOk;
     }
@@ -143,6 +147,7 @@ void listGetAfterPtr(list *L, elementList **G) {
     } else {
         *G = L->ptr->linkNext;
         L->ptr->linkNext = (*G)->linkNext;
+        L->N--;
         listError = listOk;
     }
 }

@@ -29,6 +29,7 @@ typedef struct elementList {
 typedef struct list {
     elementList *L;
     elementList *ptr;
+    int N;
 } list;
 
 // Предикат пустоты списка L
@@ -70,7 +71,7 @@ void listGetAfterPtr(list *L, elementList **G);
 void freeList(list **L);
 
 // Передвинуть рабочий указатель на след. эл.
-// s - start, e = end, n - next element
+// s - start, e = end, n - next elementDList
 void listMove(list *L, char pos);
 
 #endif //ADS_STRUCTURES_SINGLE_LINKED_LINEAR_LIST_H
