@@ -4,19 +4,36 @@
 
 #include "doubleLinkedList.h"
 
-bool isListEmpty(DList *D) {
+bool isDListEmpty(DList *D) {
     return D->start == NULL;
 }
 
-bool isListStart(DList *D) {
+bool isDListStart(DList *D) {
     return D->ptr == D->start;
 }
 
-bool isListEnd(DList *D) {
+bool isDListEnd(DList *D) {
     return D->ptr == D->end;
 }
 
-void listInit(DList **D) {
+void DListMove(DList *D, char pos) {
+    switch (pos) {
+        case 's':
+            D->ptr = D->start;
+            break;
+        case 'e':
+            D->ptr = D->end;
+            break;
+        case 'n':
+            D->ptr = D->ptr->next;
+            break;
+        case 'p':
+            D->ptr = D->ptr->prev;
+            break;
+    }
+}
+
+void DListInit(DList **D) {
     *D = (DList *)malloc(sizeof(DList));
     if (*D == NULL) {
         DListError = DListNotMem;
@@ -27,34 +44,92 @@ void listInit(DList **D) {
     (*D)->ptr = NULL;
 }
 
-void getMemToElement(elementDList **E) {
+void DListPutAfterPtr(DList *D, elementDList *E) {
+    if (isDListEmpty(D)) {
+        E->prev = NULL;
+        E->next = NULL;
+        D->start = E;
+        D->ptr = E;
+        D->end = E;
+    } else if (isDListEnd(D)) {
+        E->prev = D->end;
+        E->next = NULL;
+        D->end = E;
+    } else {
+        E->prev = D->ptr;
+        E->next = D->ptr->next;
+        D->ptr->next = E;
+    }
 
+    DListMove(D, 'n');
+
+    DListError = DListOk;
 }
 
-void freeMemToElement(elementDList *E, elementDList **next) {
+void DListPutBeforePtr(DList *D, elementDList *E) {
+    if (isDListEmpty(D)) {
+        E->prev = NULL;
+        E->next = NULL;
+        D->start = E;
+        D->ptr = E;
+        D->end = E;
+    } else if (isDListStart(D)) {
+        E->prev = NULL;
+        E->next = D->start;
+        D->start = E;
+    } else {
+        E->prev = D->ptr;
+        E->next = D->ptr->next;
+        D->ptr->next = E;
+    }
 
+    DListMove(D, 'p');
+
+    DListError = DListOk;
 }
 
-void listPutAfterPtr(DList *D, elementDList *E) {
+void DListGetIntoPtr(DList *D, elementDList **G) {
+    *G = D->ptr;
 
+    if (isDListEmpty(D)) {
+        DListError = DListEmpty;
+        return;
+    } else if (isDListStart(D) && isDListEnd(D)) {
+        D->start = NULL;
+        DListMove(D, 's');
+        D->end = NULL;
+    } else if (isDListStart(D)) {
+        D->start = D->start->next;
+        D->ptr = D->start->next;
+    } else if (isDListEnd(D)) {
+        D->end = D->end->prev;
+        D->ptr = D->end->prev;
+    } else {
+        D->ptr->prev->next = D->ptr->next;
+        D->ptr->next->prev = D->ptr->prev;
+        DListMove(D, 'n');
+    }
+
+    DListError = DListOk;
 }
 
-void listPutBeforePtr(DList *D, elementDList *E) {
+void freeDList(DList **D) {
+    elementDList *buffer = (*D)->start;
+    (*D)->ptr = (*D)->start;
+    while (buffer != NULL) {
+        buffer = (*D)->ptr->next;
+        free((*D)->ptr->data);
+        free((*D)->ptr);
+        (*D)->ptr = buffer;
+    }
 
-}
+    (*D)->start = NULL;
+    (*D)->ptr = NULL;
+    (*D)->end = NULL;
 
-void listGetIntoPtr(DList *D, elementDList **G) {
+    free(*D);
 
-}
+    *D = NULL;
 
-void listGetAfterPtr(DList *D, elementDList **G) {
-
-}
-
-void freeList(DList **D) {
-
-}
-
-void listMove(DList *D, char pos) {
-
+    DListError = DListOk;
 }

@@ -24,30 +24,6 @@ void listInit(list **L) {
     (*L)->ptr = NULL;
 }
 
-void getMemToElement(elementList **E) {
-    *E = (elementList *) malloc(sizeof(elementList));
-    if (*E == NULL) {
-        listError = listNotMem;
-        return;
-    }
-
-    (*E)->data = (elPtrList) malloc(sizeof(baseTypeList));
-    if ((*E)->data == NULL) {
-        listError = listNotMem;
-        return;
-    }
-
-    (*E)->linkNext = NULL;
-
-    listError = listOk;
-}
-
-void freeMemToElement(elementList *E, elementList **next) {
-    *next = E->linkNext;
-    free(E->data);
-    free(E);
-}
-
 void listMove(list *L, char pos) {
     if (isListEnd(L)) {
         listError = listEnd;
@@ -139,24 +115,14 @@ void listGetIntoPtr(list *L, elementList **G) {
     }
 }
 
-void listGetAfterPtr(list *L, elementList **G) {
-    if (isListEmpty(L)) {
-        listError = listEmpty;
-    } else if (isListEnd(L)) {
-        listError = listEnd;
-    } else {
-        *G = L->ptr->linkNext;
-        L->ptr->linkNext = (*G)->linkNext;
-        L->N--;
-        listError = listOk;
-    }
-}
-
 void freeList(list **L) {
     elementList *buffer = (*L)->L;
     (*L)->ptr = (*L)->L;
     while (buffer != NULL) {
-        freeMemToElement((*L)->ptr, &buffer);
+        buffer = (*L)->ptr->linkNext;
+        free((*L)->ptr->data);
+        free((*L)->ptr);
+        (*L)->ptr = buffer;
     }
 
     (*L)->L = NULL;

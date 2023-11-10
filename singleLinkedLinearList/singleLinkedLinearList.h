@@ -16,12 +16,14 @@
 #define listEnd 3
 extern int listError;
 
-typedef int baseTypeList;
-typedef baseTypeList * elPtrList;
+// typedef int baseTypeList;
+// typedef baseTypeList * elPtrList;
+
+typedef void * baseTypeList;
 
 // Дескриптор элемента списка L
 typedef struct elementList {
-    elPtrList data;
+    baseTypeList data;
     struct elementList *linkNext;
 } elementList;
 
@@ -41,14 +43,6 @@ bool isListEnd(list *L);
 // Инициализация пустого списка L
 void listInit(list **L);
 
-// Выделить память под элемент и сохранить
-// указатель для доступа к памяти в указатель E
-void getMemToElement(elementList **E);
-
-// Полностью освободить память, выделенную под эемент E,
-// но сохранить указатель на следующий после него элемент
-void freeMemToElement(elementList *E, elementList **next);
-
 // Вставить элемент, хранящийся по указателю E
 // в список L после рабочего указателя
 void listPutAfterPtr(list *L, elementList *E);
@@ -61,11 +55,6 @@ void listPutBeforePtr(list *L, elementList *E);
 // по указателю G, но доступа к нему через
 // список L уже нет
 void listGetIntoPtr(list *L, elementList **G);
-
-// Элемент полностью не очищается, он храниться
-// по указателю G, но доступа к нему через
-// список L уже нет
-void listGetAfterPtr(list *L, elementList **G);
 
 // Полное очищение списка L
 void freeList(list **L);

@@ -33,45 +33,41 @@ typedef struct DList {
 } DList;
 
 // Предикат пустоты списка L
-bool isListEmpty(DList *D);
+bool isDListEmpty(DList *D);
+
+bool isDListStart(DList *D);
 
 // Предикат конца списка L
-bool isListEnd(DList *D);
-
-// Инициализация пустого списка L
-void listInit(DList **D);
-
-// Выделить память под элемент и сохранить
-// указатель для доступа к памяти в указатель E
-void getMemToElement(elementDList **E);
-
-// Полностью освободить память, выделенную под эемент E,
-// но сохранить указатель на следующий после него элемент
-void freeMemToElement(elementDList *E, elementDList **next);
-
-// Вставить элемент, хранящийся по указателю E
-// в список L после рабочего указателя
-void listPutAfterPtr(DList *D, elementDList *E);
-
-// Вставить элемент, хранящийся по указателю E
-// в список L до рабочего указателя
-void listPutBeforePtr(DList *D, elementDList *E);
-
-// Элемент полностью не очищается, он храниться
-// по указателю G, но доступа к нему через
-// список L уже нет
-void listGetIntoPtr(DList *D, elementDList **G);
-
-// Элемент полностью не очищается, он храниться
-// по указателю G, но доступа к нему через
-// список L уже нет
-void listGetAfterPtr(DList *D, elementDList **G);
-
-// Полное очищение списка L
-void freeList(DList **D);
+bool isDListEnd(DList *D);
 
 // Передвинуть рабочий указатель на след. эл.
 // s - start, e = end, n - next, p - previous
-void listMove(DList *D, char pos);
+void DListMove(DList *D, char pos);
+
+// Инициализация пустого списка L
+void DListInit(DList **D);
+
+// Вставить элемент, хранящийся по указателю E
+// в список L после рабочего указателя
+void DListPutAfterPtr(DList *D, elementDList *E);
+
+// Вставить элемент, хранящийся по указателю E
+// в список L до рабочего указателя
+void DListPutBeforePtr(DList *D, elementDList *E);
+
+// Элемент полностью не очищается, он храниться
+// по указателю G, но доступа к нему через
+// список L уже нет
+void DListGetIntoPtr(DList *D, elementDList **G);
+
+// Элемент полностью не очищается, он храниться
+// по указателю G, но доступа к нему через
+// список L уже нет
+void DListGetAfterPtr(DList *D, elementDList **G);
+
+// Полное очищение списка L
+void freeDList(DList **D);
+
+
 
 #endif //ADS_STRUCTURES_DOUBLELINKEDLIST_H
