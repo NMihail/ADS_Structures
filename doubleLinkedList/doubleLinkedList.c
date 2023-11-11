@@ -20,16 +20,33 @@ void DListMove(DList *D, char pos) {
     switch (pos) {
         case 's':
             D->ptr = D->start;
+            DListError = DListOk;
             break;
         case 'e':
             D->ptr = D->end;
+            DListError = DListOk;
             break;
         case 'n':
-            D->ptr = D->ptr->next;
+            if (isDListEnd(D)) {
+                DListError = DListEnd;
+            } else {
+                D->ptr = D->ptr->next;
+                DListError = DListOk;
+            }
+
             break;
         case 'p':
-            D->ptr = D->ptr->prev;
+            if (isDListStart(D)) {
+                DListError = DListStart;
+            } else {
+                D->ptr = D->ptr->prev;
+                DListError = DListOk;
+            }
+
             break;
+        default:
+            printf("Рабочий указатель не был передвинут, т.к. не правильно "
+                   "введена позиция, на которую надо передвинуть рабочий указатель.");
     }
 }
 

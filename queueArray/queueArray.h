@@ -24,21 +24,21 @@ typedef struct queueArray {
 } queueArray;
 
 // Возвращает значение "истина",
-// если стек пустой
+// если очередь пуста
 bool isQueueArrayEmpty(queueArray *Q);
 
 // Инициализирует стек
 // Требует указатель на уже выделенную
-// область памяти для стека
+// область памяти для очереди
 bool isQueueArrayFull(queueArray *Q);
 
-// Очищает стек полностью
+// Очищает очередь полностью
 void queueArrayFree(queueArray *Q);
 
-// Вставляет элемент в стек
+// Вставляет элемент в очередь
 void queueArrayPut(queueArray *Q, baseTypeQueueArray E);
 
-// Получает элемент из стека
+// Получает элемент из очереди
 void queueArrayGet(queueArray *Q, baseTypeQueueArray *G);
 
 #endif //ADS_STRUCTURES_QUEUE_ARRAY_H

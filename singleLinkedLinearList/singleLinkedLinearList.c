@@ -25,19 +25,31 @@ void listInit(list **L) {
 }
 
 void listMove(list *L, char pos) {
-    if (isListEnd(L)) {
-        listError = listEnd;
-    } else if (pos == 'n') {
-        L->ptr = L->ptr->linkNext;
-    } else if (pos == 's') {
-        L->ptr = L->L;
-    } else if (pos == 'e') {
-        while (L->ptr->linkNext != NULL) {
-            L->ptr = L->ptr->linkNext;
-        }
-    } else {
-        freeList(L);
-        exit(1);
+    switch (pos) {
+        case 's':
+            L->ptr = L->L;
+            listError = listOk;
+            break;
+        case 'e':
+            while (L->ptr->linkNext != NULL) {
+                L->ptr = L->ptr->linkNext;
+            }
+
+            listError = listOk;
+
+            break;
+        case 'n':
+            if (isListEnd(L)) {
+                listError = listEnd;
+            } else {
+                L->ptr = L->ptr->linkNext;
+                listError = listOk;
+            }
+
+            break;
+        default:
+            printf("Рабочий указатель не был передвинут, т.к. не правильно "
+                   "введена позиция, на которую надо передвинуть рабочий указатель.");
     }
 }
 
