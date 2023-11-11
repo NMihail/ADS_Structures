@@ -9,6 +9,10 @@ bool isListEmpty(list *L) {
     return L->L == NULL;
 }
 
+bool isListStart(list *L) {
+    return L->L == L->ptr;
+}
+
 bool isListEnd(list *L) {
     return L->ptr->linkNext == NULL;
 }
@@ -56,6 +60,7 @@ void listMove(list *L, char pos) {
 void listPutAfterPtr(list *L, elementList *E) {
     if (isListEmpty(L)) {
         L->L = E;
+        L->L->linkNext = NULL;
         L->ptr = E;
         listError = listOk;
     } else if (isListEnd(L)) {
@@ -69,19 +74,19 @@ void listPutAfterPtr(list *L, elementList *E) {
         L->ptr = E;
         listError = listOk;
     }
+
+    L->N++;
 }
 
 void listPutBeforePtr(list *L, elementList *E) {
     if (isListEmpty(L)) {
         L->L = E;
+        L->L->linkNext = NULL;
         L->ptr = E;
-        L->N++;
-        listError = listOk;
-    } else if (L->L == L->ptr) {
+    } else if (isListStart(L)) {
         L->L = E;
         E->linkNext = L->ptr;
         L->ptr = E;
-        listError = listOk;
     } else {
         elementList *pntr = L->L;
         while (pntr->linkNext != L->ptr) {
@@ -91,8 +96,10 @@ void listPutBeforePtr(list *L, elementList *E) {
         pntr->linkNext = E;
         E->linkNext = L->ptr;
         L->ptr = E;
-        listError = listOk;
     }
+
+    listError = listOk;
+    L->N++;
 }
 
 void listGetIntoPtr(list *L, elementList **G) {
@@ -100,17 +107,12 @@ void listGetIntoPtr(list *L, elementList **G) {
         listError = listEmpty;
     } else if (L->L->linkNext == NULL) {
         *G = L->ptr;
-        L->N--;
-
         L->L = NULL;
         L->ptr = NULL;
-        listError = listOk;
-    } else if (L->L == L->ptr) {
+    } else if (isListStart(L)) {
         *G = L->ptr;
         L->L = L->L->linkNext;
         L->ptr = L->ptr->linkNext;
-        L->N--;
-        listError = listOk;
     } else {
         *G = L->ptr;
 
@@ -121,10 +123,10 @@ void listGetIntoPtr(list *L, elementList **G) {
 
         L->ptr = pntr;
         pntr->linkNext = (*G)->linkNext;
-        L->N--;
-
-        listError = listOk;
     }
+
+    listError = listOk;
+    L->N--;
 }
 
 void freeList(list **L) {

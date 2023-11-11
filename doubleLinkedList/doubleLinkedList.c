@@ -81,6 +81,7 @@ void DListPutAfterPtr(DList *D, elementDList *E) {
     DListMove(D, 'n');
 
     DListError = DListOk;
+    D->N++;
 }
 
 void DListPutBeforePtr(DList *D, elementDList *E) {
@@ -103,6 +104,7 @@ void DListPutBeforePtr(DList *D, elementDList *E) {
     DListMove(D, 'p');
 
     DListError = DListOk;
+    D->N++;
 }
 
 void DListGetIntoPtr(DList *D, elementDList **G) {
@@ -128,6 +130,7 @@ void DListGetIntoPtr(DList *D, elementDList **G) {
     }
 
     DListError = DListOk;
+    D->N--;
 }
 
 void freeDList(DList **D) {

@@ -30,6 +30,7 @@ typedef struct DList {
     elementDList *start;
     elementDList *ptr;
     elementDList *end;
+    unsigned N;
 } DList;
 
 // Предикат пустоты списка L
@@ -61,11 +62,6 @@ void DListPutBeforePtr(DList *D, elementDList *E);
 // по указателю G, но доступа к нему через
 // список D уже нет
 void DListGetIntoPtr(DList *D, elementDList **G);
-
-// Элемент полностью не очищается, он храниться
-// по указателю G, но доступа к нему через
-// список D уже нет
-void DListGetAfterPtr(DList *D, elementDList **G);
 
 // Полное очищение списка D
 void freeDList(DList **D);

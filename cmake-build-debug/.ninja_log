@@ -82,3 +82,16 @@
 17	318	7213321298065804	CMakeFiles/SLLL.dir/singleLinkedLinearList/singleLinkedLinearList.c.obj	3ee45bf416d2f37d
 318	542	7213321300326317	libSLLL.a	b1b2a9f3dfbf4a3c
 542	790	7213321302766862	ADS_Structures.exe	4246c6a5b2d065e5
+52	220	7214165725275287	CMakeFiles/SLLL.dir/queueArray/queueArray.c.obj	dc9d7acd6fd5d6b7
+18	225	7214165725275287	CMakeFiles/SLLL.dir/queueList/queueList.c.obj	6f959210a120585d
+4	229	7214165725295287	CMakeFiles/ADS_Structures.dir/main.c.obj	93a9fffe75c3ad84
+25	232	7214165725395315	CMakeFiles/SLLL.dir/stackList/stackList.c.obj	4251d8b086cf0449
+32	241	7214165725495334	CMakeFiles/SLLL.dir/deque/deque.c.obj	6c92aeb95708664f
+12	248	7214165725575352	CMakeFiles/SLLL.dir/singleLinkedLinearList/singleLinkedLinearList.c.obj	3ee45bf416d2f37d
+74	254	7214165725635360	CMakeFiles/SLLL.dir/doubleLinkedList/doubleLinkedList.c.obj	a255a5558b09ba0a
+255	370	7214165726835630	libSLLL.a	b1b2a9f3dfbf4a3c
+371	554	7214165728646048	ADS_Structures.exe	4246c6a5b2d065e5
+2	67	7214166185081927	CMakeFiles/ADS_Structures.dir/main.c.obj	93a9fffe75c3ad84
+68	163	7214166186022142	ADS_Structures.exe	4246c6a5b2d065e5
+2	75	7214167231649063	CMakeFiles/ADS_Structures.dir/main.c.obj	93a9fffe75c3ad84
+75	163	7214167232539134	ADS_Structures.exe	4246c6a5b2d065e5

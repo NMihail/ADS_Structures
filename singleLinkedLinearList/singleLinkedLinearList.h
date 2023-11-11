@@ -37,6 +37,10 @@ typedef struct list {
 // Предикат пустоты списка L
 bool isListEmpty(list *L);
 
+// Предикат нахождения рабочего
+// указателя в начале ОЛС
+bool isListStart(list *L);
+
 // Предикат конца списка L
 bool isListEnd(list *L);
 
