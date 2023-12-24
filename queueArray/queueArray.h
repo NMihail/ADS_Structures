@@ -15,13 +15,15 @@
 #define queueArraySize 100
 extern int queueArrayError;
 
-typedef int baseTypeQueueArray;
+typedef void* baseTypeQueueArray;
 typedef baseTypeQueueArray queueArray_[100];
 
 typedef struct queueArray {
     int queueArrayDynamicSize;
     queueArray_ data;
 } queueArray;
+
+void QueueArrayInit(queueArray *Q);
 
 // Возвращает значение "истина",
 // если очередь пуста

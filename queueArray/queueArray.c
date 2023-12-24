@@ -4,6 +4,10 @@
 
 #include "queueArray.h"
 
+void QueueArrayInit(queueArray *Q) {
+    Q->queueArrayDynamicSize = 0;
+}
+
 bool isQueueArrayEmpty(queueArray *Q) {
     return !Q->queueArrayDynamicSize;
 }
@@ -30,8 +34,11 @@ void queueArrayGet(queueArray *Q, baseTypeQueueArray *G) {
     if (isQueueArrayEmpty(Q)) {
         queueArrayError = queueArrayEmpty;
     } else {
-        *G = Q->data[Q->queueArrayDynamicSize];
+        *G = Q->data[0];
         Q->queueArrayDynamicSize--;
+        for (int i = 1; i < Q->queueArrayDynamicSize; i++) {
+            Q->data[i - 1] = Q->data[i];
+        }
         queueArrayError = queueArrayOk;
     }
 }

@@ -124,6 +124,18 @@ build CMakeFiles/SLLL.dir/deque/deque.c.obj: C_COMPILER__SLLL_Debug C$:/Users/Wo
   OBJECT_DIR = CMakeFiles\SLLL.dir
   OBJECT_FILE_DIR = CMakeFiles\SLLL.dir\deque
 
+build CMakeFiles/SLLL.dir/fileQueue/fileQueue.c.obj: C_COMPILER__SLLL_Debug C$:/Users/Worker/CLionProjects/ADS_Structures/fileQueue/fileQueue.c || cmake_object_order_depends_target_SLLL
+  DEP_FILE = CMakeFiles\SLLL.dir\fileQueue\fileQueue.c.obj.d
+  FLAGS = -g -std=gnu2x
+  OBJECT_DIR = CMakeFiles\SLLL.dir
+  OBJECT_FILE_DIR = CMakeFiles\SLLL.dir\fileQueue
+
+build CMakeFiles/SLLL.dir/singleLinkedLinearListCycled/singleLinkedLinearListCycled.c.obj: C_COMPILER__SLLL_Debug C$:/Users/Worker/CLionProjects/ADS_Structures/singleLinkedLinearListCycled/singleLinkedLinearListCycled.c || cmake_object_order_depends_target_SLLL
+  DEP_FILE = CMakeFiles\SLLL.dir\singleLinkedLinearListCycled\singleLinkedLinearListCycled.c.obj.d
+  FLAGS = -g -std=gnu2x
+  OBJECT_DIR = CMakeFiles\SLLL.dir
+  OBJECT_FILE_DIR = CMakeFiles\SLLL.dir\singleLinkedLinearListCycled
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target SLLL
@@ -132,7 +144,7 @@ build CMakeFiles/SLLL.dir/deque/deque.c.obj: C_COMPILER__SLLL_Debug C$:/Users/Wo
 #############################################
 # Link the static library libSLLL.a
 
-build libSLLL.a: C_STATIC_LIBRARY_LINKER__SLLL_Debug CMakeFiles/SLLL.dir/singleLinkedLinearList/singleLinkedLinearList.c.obj CMakeFiles/SLLL.dir/stackArray/stackArray.c.obj CMakeFiles/SLLL.dir/stackList/stackList.c.obj CMakeFiles/SLLL.dir/queueList/queueList.c.obj CMakeFiles/SLLL.dir/queueArray/queueArray.c.obj CMakeFiles/SLLL.dir/doubleLinkedList/doubleLinkedList.c.obj CMakeFiles/SLLL.dir/deque/deque.c.obj
+build libSLLL.a: C_STATIC_LIBRARY_LINKER__SLLL_Debug CMakeFiles/SLLL.dir/singleLinkedLinearList/singleLinkedLinearList.c.obj CMakeFiles/SLLL.dir/stackArray/stackArray.c.obj CMakeFiles/SLLL.dir/stackList/stackList.c.obj CMakeFiles/SLLL.dir/queueList/queueList.c.obj CMakeFiles/SLLL.dir/queueArray/queueArray.c.obj CMakeFiles/SLLL.dir/doubleLinkedList/doubleLinkedList.c.obj CMakeFiles/SLLL.dir/deque/deque.c.obj CMakeFiles/SLLL.dir/fileQueue/fileQueue.c.obj CMakeFiles/SLLL.dir/singleLinkedLinearListCycled/singleLinkedLinearListCycled.c.obj
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = CMakeFiles\SLLL.dir
   POST_BUILD = cd .

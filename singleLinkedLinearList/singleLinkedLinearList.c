@@ -26,6 +26,7 @@ void listInit(list **L) {
 
     (*L)->L = NULL;
     (*L)->ptr = NULL;
+    (*L)->N = 0;
 }
 
 void listMove(list *L, char pos) {
@@ -71,7 +72,6 @@ void listPutAfterPtr(list *L, elementList *E) {
     } else {
         E->linkNext = L->ptr->linkNext;
         L->ptr->linkNext = E;
-        L->ptr = E;
         listError = listOk;
     }
 

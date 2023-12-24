@@ -3,17 +3,20 @@ project(ADS_Structures C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(ADS_Structures main.c )
+add_executable(ADS_Structures main.c)
 
 add_library(SLLL
-            singleLinkedLinearList/singleLinkedLinearList.h
             singleLinkedLinearList/singleLinkedLinearList.c
-            stackArray/stackArray.h stackArray/stackArray.c
-            stackList/stackList.h stackList/stackList.c
-            queueList/queueList.h queueList/queueList.c
-            queueArray/queueArray.h queueArray/queueArray.c
-            doubleLinkedList/doubleLinkedList.h
+            singleLinkedLinearList/singleLinkedLinearList.h
+            stackArray/stackArray.c stackArray/stackArray.h
+            stackList/stackList.c stackList/stackList.h
+            queueList/queueList.c queueList/queueList.h
+            queueArray/queueArray.c queueArray/queueArray.h
             doubleLinkedList/doubleLinkedList.c
-            deque/deque.h deque/deque.c)
+            doubleLinkedList/doubleLinkedList.h
+            deque/deque.c deque/deque.h
+            fileQueue/fileQueue.c fileQueue/fileQueue.h
+            singleLinkedLinearListCycled/singleLinkedLinearListCycled.c
+            singleLinkedLinearListCycled/singleLinkedLinearListCycled.h)
 
 target_link_libraries(ADS_Structures SLLL)

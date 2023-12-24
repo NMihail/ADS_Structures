@@ -47,6 +47,10 @@ bool isListEnd(list *L);
 // Инициализация пустого списка L
 void listInit(list **L);
 
+// Передвинуть рабочий указатель на след. эл.
+// s - start, e = end, n - next elementDList
+void listMove(list *L, char pos);
+
 // Вставить элемент, хранящийся по указателю E
 // в список L после рабочего указателя
 void listPutAfterPtr(list *L, elementList *E);
@@ -62,9 +66,5 @@ void listGetIntoPtr(list *L, elementList **G);
 
 // Полное очищение списка L
 void freeList(list **L);
-
-// Передвинуть рабочий указатель на след. эл.
-// s - start, e = end, n - next elementDList
-void listMove(list *L, char pos);
 
 #endif //ADS_STRUCTURES_SINGLE_LINKED_LINEAR_LIST_H
