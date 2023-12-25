@@ -1,7 +1,5 @@
 #include "singleLinkedLinearList/singleLinkedLinearList.h"
 
-//TODO: Реализовать tableArray!!!
-
 // Пример работы ОЛС
 int listError;
 

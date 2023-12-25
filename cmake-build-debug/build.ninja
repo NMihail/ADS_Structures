@@ -55,6 +55,12 @@ build CMakeFiles/ADS_Structures.dir/main.c.obj: C_COMPILER__ADS_Structures_Debug
   OBJECT_DIR = CMakeFiles\ADS_Structures.dir
   OBJECT_FILE_DIR = CMakeFiles\ADS_Structures.dir
 
+build CMakeFiles/ADS_Structures.dir/DLS_Stack/DLS_Stack.c.obj: C_COMPILER__ADS_Structures_Debug C$:/Users/Worker/CLionProjects/ADS_Structures/DLS_Stack/DLS_Stack.c || cmake_object_order_depends_target_ADS_Structures
+  DEP_FILE = CMakeFiles\ADS_Structures.dir\DLS_Stack\DLS_Stack.c.obj.d
+  FLAGS = -g -std=gnu2x
+  OBJECT_DIR = CMakeFiles\ADS_Structures.dir
+  OBJECT_FILE_DIR = CMakeFiles\ADS_Structures.dir\DLS_Stack
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ADS_Structures
@@ -63,7 +69,7 @@ build CMakeFiles/ADS_Structures.dir/main.c.obj: C_COMPILER__ADS_Structures_Debug
 #############################################
 # Link the executable ADS_Structures.exe
 
-build ADS_Structures.exe: C_EXECUTABLE_LINKER__ADS_Structures_Debug CMakeFiles/ADS_Structures.dir/main.c.obj | libSLLL.a || libSLLL.a
+build ADS_Structures.exe: C_EXECUTABLE_LINKER__ADS_Structures_Debug CMakeFiles/ADS_Structures.dir/main.c.obj CMakeFiles/ADS_Structures.dir/DLS_Stack/DLS_Stack.c.obj | libSLLL.a || libSLLL.a
   FLAGS = -g
   LINK_LIBRARIES = libSLLL.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ADS_Structures.dir

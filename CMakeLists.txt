@@ -3,7 +3,7 @@ project(ADS_Structures C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(ADS_Structures main.c)
+add_executable(ADS_Structures main.c DLS_Stack/DLS_Stack.c DLS_Stack/DLS_Stack.h)
 
 add_library(SLLL
             singleLinkedLinearList/singleLinkedLinearList.c
