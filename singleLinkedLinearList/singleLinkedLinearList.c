@@ -105,6 +105,7 @@ void listPutBeforePtr(list *L, elementList *E) {
 void listGetIntoPtr(list *L, elementList **G) {
     if (isListEmpty(L)) {
         listError = listEmpty;
+        return;
     } else if (L->L->linkNext == NULL) {
         *G = L->ptr;
         L->L = NULL;

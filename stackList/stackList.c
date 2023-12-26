@@ -9,12 +9,12 @@ bool isStackListEmpty(stackList *S) {
 }
 
 void stackListInit(stackList *S) {
-    listInit(S);
+    listInit(&S);
     stackListError = listError;
 }
 
 void stackListFree(stackList *S) {
-    freeList(S);
+    freeList(&S);
 }
 
 void stackListPut(stackList *S, elementStackList *E) {
